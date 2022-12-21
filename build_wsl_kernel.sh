@@ -53,7 +53,8 @@ tar -xf /tmp/kbuild/kernel.tar.xz -C /tmp/kbuild
 mv -fv /tmp/kbuild/linux-${KERNELVER} /usr/src/linux-${KERNELVER}-${KERNELNAME}
 
 # Add the WSL2 kernel config from upstream into our extracted kernel directory
-wget https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/master/Microsoft/config-wsl -O /usr/src/linux-${KERNELVER}-${KERNELNAME}/.config
+# wget https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/master/Microsoft/config-wsl -O /usr/src/linux-${KERNELVER}-${KERNELNAME}/.config
+wget https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/linux-msft-wsl-5.10.y/Microsoft/config-wsl -O /usr/src/linux-${KERNELVER}-${KERNELNAME}/.config
 
 # Use our custom localversion so we can tell when we've actually successfully installed one of our custom kernels
 sed -i 's/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="-${KERNELNAME}"/g' /usr/src/linux-${KERNELVER}-${KERNELNAME}/.config
